@@ -2,9 +2,12 @@
 @import './cmps/AppHeader.css';
 @import './cmps/ToyList.css';
 @import './pages/ToyDetails.css';
+@import './pages/ToyEdit.css';
 @import './cmps/NicePopup.css';
 @import './cmps/Chat.css';
 @import './basics/layout.css';
+@import './cmps/ToyLabels.css';
+
 
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -75,3 +78,4 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+

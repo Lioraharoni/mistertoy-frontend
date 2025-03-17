@@ -11,6 +11,7 @@ import { AboutVision } from './cmps/AboutVision.jsx';
 import { AboutTeam } from './cmps/AboutTeam.jsx';
 import { ToyIndex } from './pages/ToyIndex.jsx';
 import { ToyDetails } from './pages/ToyDetails.jsx';
+import { ToyEdit } from './pages/ToyEdit.jsx';
 
 function App() {
 
@@ -27,8 +28,8 @@ function App() {
                 <Route path="vision" element={<AboutVision />} />
               </Route>
               <Route path="/toy/:toyId" element={<ToyDetails />} />
-              {/* // <Route path="/toy/edit/:toyId" element={<TodoEdit />} /> */}
-              {/* // <Route path="/toy/edit" element={<TodoEdit />} /> */}
+              <Route path="/toy/edit/:toyId" element={<ToyEdit />} />
+              <Route path="/toy/edit" element={<ToyEdit />} />
               <Route path="/toy" element={<ToyIndex />} />
               {/* // <Route path="/dashboard" element={<Dashboard />} />  */}
 

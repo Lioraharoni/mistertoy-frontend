@@ -1,4 +1,15 @@
+import { useNavigate } from "react-router-dom";
+
 export function ToyPreview({ toy, onRemoveToy, onDisplayToy }) {
+
+    const navigate = useNavigate()
+
+    function onEditToy(toyId, ev) {
+        ev.stopPropagation()
+
+        navigate(`edit/${toyId}`)
+    }
+
     return (
         <article className="toy-preview" onClick={() => onDisplayToy(toy._id)}>
             <h2 className={(toy.inStock) ? 'done' : ''} >
@@ -9,8 +20,7 @@ export function ToyPreview({ toy, onRemoveToy, onDisplayToy }) {
 
             <section>
                 <button className="btn" onClick={(ev) => onRemoveToy(toy._id, ev)}>Remove</button>
-                {/* <button><Link to={`/toy/${toy._id}`}>Details</Link></button>
-                        <button><Link to={`/toy/edit/${toy._id}`}>Edit</Link></button> */}
+                <button className="btn" onClick={ev => onEditToy(toy._id, ev)}>Edit</button>
             </section>
         </article>
     )

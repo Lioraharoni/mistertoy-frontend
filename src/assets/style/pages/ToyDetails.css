@@ -2,7 +2,6 @@
     display: grid;
     grid-template-columns: 1fr 3fr;
     align-content: start;
-    flex-direction: row;
     border-color: black;
     /* border-width: 1px; */
 }
@@ -13,13 +12,4 @@
 
 .toy-details .notInStock {
     color: red;
-}
-
-.toy-details .toy-labels {
-    display: grid;
-    grid-template-columns: repeat(5, minmax(30px, 1fr));
-    list-style: none;
-    color: rgb(95, 153, 219);
-    align-content: center;
-    font-weight: bold;
 }

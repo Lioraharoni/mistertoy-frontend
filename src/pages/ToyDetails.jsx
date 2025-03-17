@@ -5,6 +5,8 @@ import { toyService } from "../services/toy.service.js"
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import defaultToyImg from '../assets/img/DefaultToy.webp'
+import { ToyLabels } from "../cmps/ToyLabels.jsx"
+
 export function ToyDetails() {
 
 
@@ -62,14 +64,7 @@ export function ToyDetails() {
                     <Link to={`/toy/${toy.nextToyId}`}>Next Toy</Link> |
                     <Link to={`/toy/${toy.prevToyId}`}>Previous Toy</Link>
                 </div> */}
-                <ul className="toy-labels"  >
-                    {toy.labels && toy.labels.map(toyLabel =>
-                        <li>
-                            {toyLabel}
-
-                        </li>
-                    )}
-                </ul>
+                <ToyLabels toy={toy} />
                 <h2 className={inStockClass}>{toy.inStock ? 'In Stock!' : 'Oops currently is missing'}</h2>
             </div>
 
