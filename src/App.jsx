@@ -10,6 +10,7 @@ import { About } from './pages/About.jsx';
 import { AboutVision } from './cmps/AboutVision.jsx';
 import { AboutTeam } from './cmps/AboutTeam.jsx';
 import { ToyIndex } from './pages/ToyIndex.jsx';
+import { ToyDetails } from './pages/ToyDetails.jsx';
 
 function App() {
 
@@ -22,10 +23,10 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />}>
-              <Route path="team" element={<AboutTeam />} />
+                <Route path="team" element={<AboutTeam />} />
                 <Route path="vision" element={<AboutVision />} />
               </Route>
-              {/* { <Route path="/toy/:toyId" element={<TodoDetails />} /> */}
+              <Route path="/toy/:toyId" element={<ToyDetails />} />
               {/* // <Route path="/toy/edit/:toyId" element={<TodoEdit />} /> */}
               {/* // <Route path="/toy/edit" element={<TodoEdit />} /> */}
               <Route path="/toy" element={<ToyIndex />} />
@@ -37,6 +38,7 @@ function App() {
           </main>
         </section>
       </Router>
+      {/* <UserMsg /> */}
     </Provider>
   )
 }

@@ -1,12 +1,11 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-
   --mainColor: aquamarine;
   --secondColor: rgb(6, 92, 63);
   --color: #000
+}
+
+body {
+  text-align: center;
 }
 
 .btn {

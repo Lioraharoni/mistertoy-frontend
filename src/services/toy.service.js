@@ -1,7 +1,6 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
 
-
 const labels = ['On wheels', 'Box game', 'Art', 'Baby', 'Doll', 'Puzzle', 'Outdoor', 'Battery Powered']
 const TOY_KEY = 'toyDB'
 _createToys()
@@ -14,8 +13,6 @@ export const toyService = {
     getEmptyToy,
     getDefaultFilter,
     getFilterFromSearchParams,
-    // getPriceStats,
-    // getNameStats,
 }
 // For Debug (easy access from console):
 window.toyService = toyService
@@ -73,30 +70,6 @@ function getFilterFromSearchParams(searchParams) {
     return filterBy
 }
 
-// function getPriceStats() {
-//     return storageService.query(TOY_KEY)
-//         .then(toys => {
-//             const toyCountByPriceMap = _getToyCountByPriceMap(toys)
-//             const data = Object.keys(toyCountByPriceMap).map(priceName => ({ title: priceName, value: toyCountByPriceMap[priceName] }))
-//             return data
-//         })
-
-// }
-
-// function getNameStats() {
-//     return storageService.query(TOY_KEY)
-//         .then(toys => {
-//             const toyCountByNameMap = _getToyCountByNameMap(toys)
-//             const data = Object.keys(toyCountByNameMap)
-//                 .map(name =>
-//                 ({
-//                     title: name,
-//                     value: Math.round((toyCountByNameMap[name] / toys.length) * 100)
-//                 }))
-//             return data
-//         })
-// }
-
 function _createToys() {
     let toys = utilService.loadFromStorage(TOY_KEY)
     if (!toys || !toys.length) {
@@ -114,7 +87,7 @@ function _createToy(name, price = 100) {
     const toy = getEmptyToy(name, price)
     toy._id = utilService.makeId()
     toy.createdAt = Date.now() - utilService.getRandomIntInclusive(0, 1000 * 60 * 60 * 24)
-    toy.labels = []
+    toy.labels = [...labels]
     toy.inStock = true
     toy.imgUrl = 'src/assets/img/DefaultToy.webp'
     return toy
@@ -130,23 +103,3 @@ function _setNextPrevToyId(toy) {
         return toy
     })
 }
-
-// function _getToyCountByPriceMap(toys) {
-//     const toyCountByPriceMap = toys.reduce((map, toy) => {
-//         if (toy.maxPrice < 120) map.slow++
-//         else if (toy.maxPrice < 200) map.normal++
-//         else map.fast++
-//         return map
-//     }, { slow: 0, normal: 0, fast: 0 })
-//     return toyCountByPriceMap
-// }
-
-// function _getToyCountByNameMap(toys) {
-//     const toyCountByNameMap = toys.reduce((map, toy) => {
-//         if (!map[toy.name]) map[toy.name] = 0
-//         map[toy.name]++
-//         return map
-//     }, {})
-//     return toyCountByNameMap
-// }
-

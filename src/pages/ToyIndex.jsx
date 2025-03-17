@@ -7,13 +7,14 @@ import { SET_FILTER_BY } from "../store/reducers/toy.reducer.js"
 
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 
 export function ToyIndex() {
     // Special hook for accessing search-params:
     const [searchParams, setSearchParams] = useSearchParams()
     const toys = useSelector(storeState => storeState.toyModule.toys)
     const filterBy = useSelector(storeState => storeState.toyModule.filterBy)
+    const navigate = useNavigate()
 
     useEffect(() => {
         setSearchParams(filterBy)
@@ -21,7 +22,9 @@ export function ToyIndex() {
             .catch(showErrorMsg('Cannot load toys'))
     }, [filterBy])
 
-    function onRemoveToy(toyId) {
+    function onRemoveToy(toyId, ev) {
+        ev.stopPropagation()
+
         var isSure = confirm("Are you sure want to delete?");
         if (isSure) {
             removeToy(toyId)
@@ -29,6 +32,11 @@ export function ToyIndex() {
                 .catch(err => showErrorMsg('Cannot remove toy'))
         }
     }
+
+    function onDisplayToy(toyId) {
+        navigate(`/toy/${toyId}`)
+    }
+
 
     function setFilterBy(newFilterBy) {
         store.dispatch({ type: SET_FILTER_BY, filterBy: newFilterBy })
@@ -43,7 +51,7 @@ export function ToyIndex() {
             </div>
 
             <h2>Our Toys</h2>
-            <ToyList toys={toys} onRemoveToy={onRemoveToy} />
+            <ToyList toys={toys} onRemoveToy={onRemoveToy} onDisplayToy={onDisplayToy} />
             <hr />
         </section>
     )

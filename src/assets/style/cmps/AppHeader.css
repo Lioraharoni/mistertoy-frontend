@@ -1,11 +1,12 @@
-/* .container {
-    --bgColor: #000;
-    --color: #fff
-  } */
-
 .app-header {
     background-color: var(--secondColor);
     color: var(--color);
+}
+.home-nav{
+    width: 50px;
+}
+.home-nav img {
+    width: 50px;
 }
 
 .header-container {
@@ -13,10 +14,6 @@
     align-items: center;
     justify-content: space-between;
 }
-
-/* .header-container h1 {
-    flex-grow: 1;
-} */
 
 .app-nav {
     display: flex;
@@ -33,9 +30,3 @@
     font-weight: 600;
     text-decoration: underline;
 }
-
-/* @media (max-width: 720px) {
-    .app-header {
-        color: var(--clr2bg-light);
-    }
-}  */
