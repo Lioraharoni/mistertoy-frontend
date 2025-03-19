@@ -8,6 +8,7 @@ import { SET_FILTER_BY } from "../store/reducers/toy.reducer.js"
 import { useSelector } from 'react-redux'
 import { useEffect } from 'react'
 import { Link, useSearchParams, useNavigate } from 'react-router-dom'
+import { ToyFilter } from "../cmps/ToyFilter.jsx"
 
 export function ToyIndex() {
     // Special hook for accessing search-params:
@@ -45,7 +46,7 @@ export function ToyIndex() {
     if (!toys) return <div>Loading...</div>
     return (
         <section className="toy-index">
-            {/* <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} /> */}
+            <ToyFilter filterBy={filterBy} onSetFilterBy={setFilterBy} />
             <div>
                 <Link to="/toy/edit" className="btn" >Add Toy</Link>
             </div>

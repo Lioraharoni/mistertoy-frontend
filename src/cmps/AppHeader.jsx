@@ -6,16 +6,13 @@ export function AppHeader() {
             <section className="header-container">
                 <div className='home-nav'>
                     <NavLink to="/" >
-                        <img src='src/assets/img/logo.png' alt="toy-img" />
+                        <img src='/src/assets/img/logo.png' alt="toy-img" />
                     </NavLink>
 
                 </div>
                 <nav className="app-nav">
-
                     <NavLink to="/about" >About</NavLink>
                     <NavLink to="/toy" >Toys</NavLink>
-
-
                     {/* <NavLink to="/dashboard" >Dashboard</NavLink>
                     <NavLink to="/survey" >Survey</NavLink> */}
                 </nav>

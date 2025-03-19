@@ -1,9 +1,10 @@
 .toy-edit .toy-labels>*:hover {
     color: black;
     text-decoration: line-through;
+    cursor: pointer;
 }
 
-.toy-edit form{
+.toy-edit form {
     display: grid;
     grid-template-columns: 1fr;
     align-items: center;

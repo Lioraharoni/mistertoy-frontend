@@ -1,0 +1,11 @@
+.toy-filter form {
+    color: var(--secondColor);
+    font-weight: bold;
+    background-color: rgb(247, 241, 212);
+}
+
+.toy-filter .selected-labels {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}

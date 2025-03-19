@@ -80,7 +80,7 @@ export function ToyEdit() {
                 <label htmlFor="inStock">In stock</label>
                 <input onChange={handleChange} checked={toyToEdit.inStock} type="checkbox" name="inStock" id="inStock" />
 
-                <ToyLabels toy={toyToEdit} onRemoveLabel={onRemoveLabel} />
+                <ToyLabels toyLabels={toyToEdit.labels} onRemoveLabel={onRemoveLabel} />
 
                 <button>Save</button>
             </form>

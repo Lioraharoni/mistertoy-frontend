@@ -13,11 +13,12 @@ export const toyService = {
     getEmptyToy,
     getDefaultFilter,
     getFilterFromSearchParams,
+    getToyLabels
 }
 // For Debug (easy access from console):
 window.toyService = toyService
 
-function query(filterBy = {}) {
+function query(filterBy = {}) {    
     return storageService.query(TOY_KEY)
         .then(toys => {
             if (filterBy.name) {
@@ -25,8 +26,22 @@ function query(filterBy = {}) {
                 toys = toys.filter(toy => regExp.test(toy.name))
             }
 
-            if (filterBy.maxPrice) {
-                toys = toys.filter(toy => toy.price <= filterBy.maxPrice)
+            if (filterBy.price) {
+                toys = toys.filter(toy => toy.price <= filterBy.price)
+            }
+
+            if (filterBy.inStock) {
+                if(filterBy.inStock === "true") {
+                    toys = toys.filter(toy => toy.inStock)
+                }
+                else if(filterBy.inStock === "false") {
+                    toys= toys.filter(toy => !toy.inStock)
+                }
+            }
+
+            if(filterBy.labels) {
+                const hasCommonLabel = label => filterBy.labels.includes(label)
+                toys = toys.filter(toy => toy.labels && toy.labels.some(hasCommonLabel))
             }
 
             return toys
@@ -58,7 +73,7 @@ function getEmptyToy(name = '', price = '') {
 }
 
 function getDefaultFilter() {
-    return { name: '', maxPrice: 1000 }
+    return { name: '', price: 200 }
 }
 
 function getFilterFromSearchParams(searchParams) {
@@ -102,4 +117,8 @@ function _setNextPrevToyId(toy) {
         toy.prevToyId = prevToy._id
         return toy
     })
+}
+
+function getToyLabels(){
+    return labels
 }

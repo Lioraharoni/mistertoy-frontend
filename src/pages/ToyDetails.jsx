@@ -64,7 +64,7 @@ export function ToyDetails() {
                     <Link to={`/toy/${toy.nextToyId}`}>Next Toy</Link> |
                     <Link to={`/toy/${toy.prevToyId}`}>Previous Toy</Link>
                 </div> */}
-                <ToyLabels toy={toy} />
+                <ToyLabels toyLabels={toy.labels} />
                 <h2 className={inStockClass}>{toy.inStock ? 'In Stock!' : 'Oops currently is missing'}</h2>
             </div>
 

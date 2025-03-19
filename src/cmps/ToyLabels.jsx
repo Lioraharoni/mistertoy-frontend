@@ -1,4 +1,4 @@
-export function ToyLabels({ toy, onRemoveLabel }) {
+export function ToyLabels({ toyLabels, onRemoveLabel }) {
 
     function onLabelClick(toyLabel, ev) {
         console.log('onLabelClick', toyLabel, ev.target);
@@ -10,9 +10,10 @@ export function ToyLabels({ toy, onRemoveLabel }) {
 
     return (
         <ul className="toy-labels"  >
-            {toy.labels && toy.labels.map(toyLabel =>
+            {toyLabels && toyLabels.map(toyLabel =>
                 <li key={toyLabel} onClick={(ev) => onLabelClick(toyLabel, ev)}>
                     {toyLabel}
+                    {/* {onRemoveLabel && <button onClick={() => onRemoveLabel(toyLabel)}>x</button>} */}
                 </li>
             )}
         </ul>

@@ -12,7 +12,7 @@ export function ToyPreview({ toy, onRemoveToy, onDisplayToy }) {
 
     return (
         <article className="toy-preview" onClick={() => onDisplayToy(toy._id)}>
-            <h2 className={(toy.inStock) ? 'done' : ''} >
+            <h2 className={(toy.inStock) ? 'inStock' : ''} >
                 Toy: {toy.name}
             </h2>
             <h4>Toy price: {toy.price}$</h4>

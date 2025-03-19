@@ -9,7 +9,7 @@ window.getImgUrl = function getImageUrl(path) {
 import { toyService } from './services/toy.service.js'
 
 createRoot(document.getElementById('root')).render(
-  <StrictMode>
+  // <StrictMode>
     <App />
-  </StrictMode>,
+  // </StrictMode>,
 )
